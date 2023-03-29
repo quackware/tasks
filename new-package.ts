@@ -22,7 +22,7 @@ async function newPackage() {
   for await (const entry of $.fs.walk(destinationDirectory, { includeDirs: false })) {
     if (TEMPLATE_FILES.includes(entry.name)) {
       let src = await Deno.readTextFile(entry.path);
-      src = replaceTemplateVariables(src, "QUACKWARE_PACKAGE_NAME", `@quackware/${name}`);
+      src = replaceTemplateVariables(src, "QUACKWARE_PACKAGE_NAME", `${name}`);
       src = replaceTemplateVariables(src, "QUACKWARE_PACKAGE_DESCRIPTION", description as string);
       await Deno.writeTextFile(entry.path, src);
     }
