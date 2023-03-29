@@ -10,5 +10,5 @@ export const TEMPLATE_VARIABLES = [
 export type TemplateVariable = typeof TEMPLATE_VARIABLES[number];
 
 export function replaceTemplateVariables(src: string, variable: TemplateVariable, value: string) {
-  return src.replaceAll(`${variable}`, value);
+  return src.replaceAll(`$${variable}`, value);
 }
